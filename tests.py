@@ -1,7 +1,7 @@
 """
 Use Python unittest for nest.py script
 """
-import json
+
 import unittest
 import pandas as pd
 
@@ -26,15 +26,10 @@ class TestSequenceFunctions(unittest.TestCase):
         self.input = pd.read_json('input.json')
         self.expected = pd.read_json('expected_output.json')
 
-        # inp = self.input.to_json()
-        # exp = self.expected.to_json()
-        # print(inp)
-        # print(exp)
-
     def test_good_result(self):
         """
         check if expected VS. delivered jsons are:
-            added, removed, modified, same
+        Added, Removed, Modified, Same
         """
         added, removed, modified, same = dict_compare(
             self.input.to_dict(), self.expected.to_dict())
