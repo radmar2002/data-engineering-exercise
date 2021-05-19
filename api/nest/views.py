@@ -45,8 +45,15 @@ class NestedAmountsView(APIView):
 
         inputdata = request.data
         idata = pd.DataFrame(inputdata)
+
         nl = ["country", "city", "currency"]
+        if len(request.headers['Nestlevels']) > 0:
+            nl = list(request.headers['Nestlevels'].split(" "))
+            print(nl,  type(nl))
+
         response_dict = json.loads(list_nester(idata, nl))
+
+        print(request.headers['Nestlevels'])
         return Response(response_dict, status=200)
 
     def get(self, request, format=None):
