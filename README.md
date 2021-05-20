@@ -2,20 +2,27 @@
 
 data-engineering-exercise
 
-### T1:
+### Task 1 Python:
 
-Given an input as json array (each element is a flat dictionary) write a program that will parse this json, and return a nested dictionary of dictionaries of arrays, with keys specified in command line arguments and the leaf values as arrays of flat dictionaries matching appropriate groups
+Run in command line:
 `python nest.py nesting_level_1 nesting_level_2 ... nesting_level_n`
 
 Example:
 `cat input.json | python nest.py currency country city`
 
-### T2:
-
-REST service from the first task
+### Task 2 Python:
 
 - localhost API point: `http://localhost:8000/api/v01/nest/`
-- user/pass: `marius / *** `
+
+REST service from the first task deployed here on
+Digital Ocean with `drf, supervisor, gunicorm nginx`
+
+Example: POST `http://165.22.22.185/api/v01/nest/`
+
+- REST call with Postman/Insomia or any other client
+- `nestlevels should be passed are passed in header`
+- Basic Auth: user/pass: `marius / *** `
+- body can have the similar input.json
 
 ```javascript
 fetch("http://localhost:8000/api/v01/nest/", {
@@ -71,3 +78,9 @@ fetch("http://localhost:8000/api/v01/nest/", {
     console.error(err);
   });
 ```
+
+![test_call](./test_call.png)
+
+### Task 3 SQL:
+
+- SQL scripts are included in folder: `data-engineering-exercise/sqlfiles/`

@@ -13,7 +13,7 @@ from .throttles import LimitedRateThrottle, BurstRateThrottle
 from collections import defaultdict
 
 
-def list_nester(input_df, n_levels):
+def list_nester(input_df, n_levels=["country", "city", "currency"]):
 
     gr_els = list(n_levels)
     n_levels.append("amount")
@@ -46,14 +46,14 @@ class NestedAmountsView(APIView):
         inputdata = request.data
         idata = pd.DataFrame(inputdata)
 
-        nl = ["country", "city", "currency"]
-        if len(request.headers['Nestlevels']) > 0:
+        #nl = ["country", "city", "currency"]
+        if request.headers['Nestlevels']:
             nl = list(request.headers['Nestlevels'].split(" "))
             print(nl,  type(nl))
 
         response_dict = json.loads(list_nester(idata, nl))
 
-        print(request.headers['Nestlevels'])
+        # print(request.headers['nestlevels'])
         return Response(response_dict, status=200)
 
     def get(self, request, format=None):
