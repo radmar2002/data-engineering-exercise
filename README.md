@@ -1,5 +1,11 @@
 # data-engineering-exercise
 
+### Structure:
+
+- script
+- api
+- sqlfiles
+
 ### Task 1 Python:
 
 Run in command line:
