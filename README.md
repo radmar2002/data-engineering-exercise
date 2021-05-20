@@ -1,7 +1,5 @@
 # data-engineering-exercise
 
-data-engineering-exercise
-
 ### Task 1 Python:
 
 Run in command line:
@@ -12,17 +10,15 @@ Example:
 
 ### Task 2 Python:
 
-- localhost API point: `http://localhost:8000/api/v01/nest/`
-
 REST service from the first task deployed here on
 Digital Ocean with `drf, supervisor, gunicorm nginx`
 
 Example: POST `http://165.22.22.185/api/v01/nest/`
 
 - REST call with Postman/Insomia or any other client
-- `nestlevels should be passed are passed in header`
+- Nesting levels should be passed in header: `nestlevels: country city currency`
 - Basic Auth: user/pass: `marius / *** `
-- body can have the similar input.json
+- Body can have the similar input.json
 
 ```javascript
 fetch("http://localhost:8000/api/v01/nest/", {
@@ -80,6 +76,8 @@ fetch("http://localhost:8000/api/v01/nest/", {
 ```
 
 ![test_call](./test_call.png)
+
+- localhost API point: `http://localhost:8000/api/v01/nest/`
 
 ### Task 3 SQL:
 
