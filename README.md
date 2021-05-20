@@ -13,3 +13,61 @@ Example:
 ### T2:
 
 REST service from the first task
+
+- localhost API point: `http://localhost:8000/api/v01/nest/`
+- user/pass: `marius / *** `
+
+```javascript
+fetch("http://localhost:8000/api/v01/nest/", {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+    nestlevels: "country city currency",
+    authorization: "Basic bWFyaXVzOmdyaWdvcmVzY3U=",
+  },
+  body: [
+    {
+      country: "US",
+      city: "Boston",
+      currency: "USD",
+      amount: 100,
+    },
+    {
+      country: "FR",
+      city: "Paris",
+      currency: "EUR",
+      amount: 20,
+    },
+    {
+      country: "FR",
+      city: "Lyon",
+      currency: "EUR",
+      amount: 11.4,
+    },
+    {
+      country: "ES",
+      city: "Madrid",
+      currency: "EUR",
+      amount: 8.9,
+    },
+    {
+      country: "UK",
+      city: "London",
+      currency: "GBP",
+      amount: 12.2,
+    },
+    {
+      country: "UK",
+      city: "London",
+      currency: "FBP",
+      amount: 10.9,
+    },
+  ],
+})
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+```
